@@ -9,215 +9,226 @@
 		<script>
 			console.log("Массивы. Задачи на методы");
 
-			console.log("1. Создать функцию, которая принимает массив и возвращает новый продублированный массив");
-
-			var arr = [1, 2, 3];
-			function doubleArray(array) {
-				for (var i in arr) {
-					arr.push(arr[i]);
-				}
-			return arr;
-			}
-			doubleArray(arr);
-			document.write(`1.  ${arr}`);
-
-			document.write("<br>");
 
 
-			console.log("2. Получить последний элемент массива");
+			console.log("1. Функция с продуктами (11я задача)");
 
-			
-			function lastEl(arr){
-				return arr[arr.length - 1];
-			}
-			var lastElement = lastEl(arr);
-			document.write(`2.  ${lastElement}`);
+			var products = [
+				{title: 'prod1', price: 5.2}, 
+				{title: 'prod2', price: 0.18},
+				{title: 'prod3', price: 15}, 
+				{title: 'prod4', price: 25},
+				{title: 'prod5', price: 18.9}, 
+				{title: 'prod6', price: 8},
+				{title: 'prod7', price: 19}, 
+				{title: 'prod8', price: 63}
+			],
+				minPrice = 2,
+				maxPrice = 25,
+				sortProd = [];
 
-			document.write("<br>");
+			// sortProd = products.filter(function (prod, i, arr) {
+			// 	return prod.price >= minPrice && prod.price <= maxPrice;
+			// });
+			// console.log(sortProd);  простой функцией.
 
-
-			console.log("3. Создать функцию, которая принимает число и возвращает массив от 1 до него");
-
-			var n = 10;
-			function getArray(n) {
-				let arr = [];
-				for (let i = 1; i <= n; i++) {
-					arr.push(i);
-				}
-				return arr;
-			}
-			var array = getArray(n);
-			document.write(`3.  ${array}`);			
-
-			document.write("<br>");
-
-
-			console.log("4. Создать функцию, которая принимает массивы, удаляет первые элементы и возвращает оставшееся");
-
-			
-			function changeCollection() {
-				var arr = [];
-				for (let i = 0, len = arguments.length; i < len; i++) {
-					arguments[i].shift()
-					arr.push(arguments[i]);
-				}
-				return arr;
-			}
-			var firstElDel = changeCollection([1, 2, 3], ['a', 'b', 'c']);
-			document.write(`4.  ${firstElDel}`);
-			
-			document.write("<br>");
-			document.write("<br>");
-
-
-			console.log("МАССИВЫ. Задачи");
-
-			console.log("1) Упорядочить по алфавиту в обратном порядке");	
-			
-			function sortRev(string) {
-				var strToArr = string.split('');
-				strToArr.sort();
-				strToArr.reverse();
-				string = strToArr.join('');
-				return string;
-			}
-			var newString = sortRev("bcdaeflmjgkhi");
-			document.write(`1)  ${newString}`);
-
-			document.write("<br>");
-
-
-			console.log("2) Отсортировать в обратном порядке");	
-
-			var arr = [2, 4, 7, 1, -2, 10, -9];
-			function sortRev_2(arr){
-				arr.sort(function(prev, next) {
-					return next - prev;
-				});
-				return arr;
-			}
-			var newArr = sortRev_2(arr);
-			document.write(`2)  ${newArr}`);		
-
-			document.write("<br>");
-
-
-			console.log("3) Написать функцию, обрезаующую массив с- по");
-
-			var arr = ['a', 'b', 'c', 'd', 'e', 'f'],
-				numStart = 2,
-				numEnd = 4;
-			function getNewArray(arr, start, end) {
-				var newArr = arr.slice(start, end + 1);
-				return newArr;
-			}
-			var newArr = getNewArray(arr, numStart, numEnd);
-			document.write(`3)  ${newArr}`);
-
-			document.write("<br>");
-
-
-			console.log("4) Удвоить эллементы массива");
-
-			var arr = ['one', 2, 'three', 4];
-			function doubleEl(arr) {
-				var doubleArr = arr.concat(arr.slice(0));
-				return doubleArr;
-			}
-			var doubleArr = doubleEl(arr);
-			document.write(`4)  ${doubleArr}`);
-
-			document.write("<br>");
-
-
-			console.log("5) Удалить элементы");
-
-			var arr = [1, 2, 3, 4, 5];
-			var arr_5 = arr.splice(2, 2);
-			document.write(`5)  ${arr}`);
-			
-			document.write("<br>");
-
-
-			console.log("6) Заменить элементы");
-
-			var arr_6 = arr.splice(2, 2, 'three', 'four' );
-			document.write(`6)  ${arr}`);
-			document.write("<br>");
-
-
-			console.log("7) Вставить после третьего элемента произвольный элемент");
-
-			var arr = ["I", "am", "an", "array"]
-			var arr_7 = arr.splice(3, 0, "awesome" );
-			document.write(`7)  ${arr}`);
-			document.write("<br>");
-
-
-			console.log("8) Отсортировать по длине массивов");
-
-			var arr = [[14, 45], [1], ["a", "c", "d"]];
-			arr.sort(function(prev, next) {
-				return prev.length - next.length;
-			}) 
-			
-			document.write(`8) ${arr}`);
-			document.write("<br>");
-
-
-			console.log("9) Создать копию массива");
-
-			var arr = ["a", "c", "d"];
-			var arrConcat = arr.concat();
-			var arrSlice = arr.slice(0);
-			document.write(`9) concat ${arrConcat}`);
-			document.write("<br>");
-			document.write(`9) slice ${arrSlice}`);
-			document.write("<br>");
-
-
-			console.log("10. Отсортировать по значению элемента массива");
-
-			var arrCpu = [
-							{cpu: 'intel', info: {cores: 2, cache: 3}},
-							{cpu: 'intel', info: {cores: 4, cache: 4}},
-							{cpu: 'amd', info: {cores: 1, cache: 1}},
-							{cpu: 'intel', info: {cores: 3, cache: 2}},
-							{cpu: 'amd', info: {cores: 4, cache: 2}}
-							];
-			
-			arrCpu.sort(function(prev, next) {
-				return prev.info.cores - next.info.cores;
-			});
-			
-			document.write(`10) ${arrCpu}`);
-			document.write("<br>");
-			console.log({arrCpu});
-
-			console.log("11. Функция с продуктами");
-
-			let products = [
-				{title: 'prod1', price: 5.2}, {title: 'prod2', price: 0.18},
-				{title: 'prod3', price: 15}, {title: 'prod4', price: 25},
-				{title: 'prod5', price: 18.9}, {title: 'prod6', price: 8},
-				{title: 'prod7', price: 19}, {title: 'prod8', price: 63}
-			];
-
-			function filterCollection(arr, minPrice, maxPrice){
-				var newArr = [];
-				for(let i = 0, len = arr.length; i < len; i++){
-					if (arr[i].price >= minPrice && arr[i].price <= maxPrice) {
-						newArr.push(arr[i]);
-					};
-				};
-				newArr.sort(function(prev, next) {
-					return prev.price - next.price;
-					
-				});
-				return newArr;
-			}
-						
-			var sortProd = filterCollection(products, 15, 30);
+			// стрелкой
+			sortProd = products.filter(prod => prod.price >= minPrice && prod.price <= maxPrice);
 			console.log(sortProd);
+
+			var result = sortProd.sort( (prev, next) => prev.price - next.price);
+			console.log(result);
+			
+
+
+			console.log("2. На основе массива сформировать новый, каждый элемент которого будет хранить инфу о числе и четности");
+
+			var nums = [1,2,3,4,5,6,7,8,9,10];
+
+			var resultNums = nums.map(function (num) {
+				return {digit: num, 
+						odd: Boolean(num % 2)};
+			});
+
+			console.log(nums);
+			console.log(resultNums);
+
+
+
+			console.log("3. Проверить, содержит ли массив элементы, равные нулю. Если да - вернуть FALSE");
+
+			var nums = [12,4,50,1,0,18,40];
+
+			
+			
+
+
+			// console.log("4. Создать функцию, которая принимает массивы, удаляет первые элементы и возвращает оставшееся");
+
+			
+			// function changeCollection() {
+			// 	var arr = [];
+			// 	for (let i = 0, len = arguments.length; i < len; i++) {
+			// 		arguments[i].shift()
+			// 		arr.push(arguments[i]);
+			// 	}
+			// 	return arr;
+			// }
+			// var firstElDel = changeCollection([1, 2, 3], ['a', 'b', 'c']);
+			// document.write(`4.  ${firstElDel}`);
+			
+			// document.write("<br>");
+			// document.write("<br>");
+
+
+			// console.log("МАССИВЫ. Задачи");
+
+			// console.log("1) Упорядочить по алфавиту в обратном порядке");	
+			
+			// function sortRev(string) {
+			// 	var strToArr = string.split('');
+			// 	strToArr.sort();
+			// 	strToArr.reverse();
+			// 	string = strToArr.join('');
+			// 	return string;
+			// }
+			// var newString = sortRev("bcdaeflmjgkhi");
+			// document.write(`1)  ${newString}`);
+
+			// document.write("<br>");
+
+
+			// console.log("2) Отсортировать в обратном порядке");	
+
+			// var arr = [2, 4, 7, 1, -2, 10, -9];
+			// function sortRev_2(arr){
+			// 	arr.sort(function(prev, next) {
+			// 		return next - prev;
+			// 	});
+			// 	return arr;
+			// }
+			// var newArr = sortRev_2(arr);
+			// document.write(`2)  ${newArr}`);		
+
+			// document.write("<br>");
+
+
+			// console.log("3) Написать функцию, обрезаующую массив с- по");
+
+			// var arr = ['a', 'b', 'c', 'd', 'e', 'f'],
+			// 	numStart = 2,
+			// 	numEnd = 4;
+			// function getNewArray(arr, start, end) {
+			// 	var newArr = arr.slice(start, end + 1);
+			// 	return newArr;
+			// }
+			// var newArr = getNewArray(arr, numStart, numEnd);
+			// document.write(`3)  ${newArr}`);
+
+			// document.write("<br>");
+
+
+			// console.log("4) Удвоить эллементы массива");
+
+			// var arr = ['one', 2, 'three', 4];
+			// function doubleEl(arr) {
+			// 	var doubleArr = arr.concat(arr.slice(0));
+			// 	return doubleArr;
+			// }
+			// var doubleArr = doubleEl(arr);
+			// document.write(`4)  ${doubleArr}`);
+
+			// document.write("<br>");
+
+
+			// console.log("5) Удалить элементы");
+
+			// var arr = [1, 2, 3, 4, 5];
+			// var arr_5 = arr.splice(2, 2);
+			// document.write(`5)  ${arr}`);
+			
+			// document.write("<br>");
+
+
+			// console.log("6) Заменить элементы");
+
+			// var arr_6 = arr.splice(2, 2, 'three', 'four' );
+			// document.write(`6)  ${arr}`);
+			// document.write("<br>");
+
+
+			// console.log("7) Вставить после третьего элемента произвольный элемент");
+
+			// var arr = ["I", "am", "an", "array"]
+			// var arr_7 = arr.splice(3, 0, "awesome" );
+			// document.write(`7)  ${arr}`);
+			// document.write("<br>");
+
+
+			// console.log("8) Отсортировать по длине массивов");
+
+			// var arr = [[14, 45], [1], ["a", "c", "d"]];
+			// arr.sort(function(prev, next) {
+			// 	return prev.length - next.length;
+			// }) 
+			
+			// document.write(`8) ${arr}`);
+			// document.write("<br>");
+
+
+			// console.log("9) Создать копию массива");
+
+			// var arr = ["a", "c", "d"];
+			// var arrConcat = arr.concat();
+			// var arrSlice = arr.slice(0);
+			// document.write(`9) concat ${arrConcat}`);
+			// document.write("<br>");
+			// document.write(`9) slice ${arrSlice}`);
+			// document.write("<br>");
+
+
+			// console.log("10. Отсортировать по значению элемента массива");
+
+			// var arrCpu = [
+			// 				{cpu: 'intel', info: {cores: 2, cache: 3}},
+			// 				{cpu: 'intel', info: {cores: 4, cache: 4}},
+			// 				{cpu: 'amd', info: {cores: 1, cache: 1}},
+			// 				{cpu: 'intel', info: {cores: 3, cache: 2}},
+			// 				{cpu: 'amd', info: {cores: 4, cache: 2}}
+			// 				];
+			
+			// arrCpu.sort(function(prev, next) {
+			// 	return prev.info.cores - next.info.cores;
+			// });
+			
+			// document.write(`10) ${arrCpu}`);
+			// document.write("<br>");
+			// console.log({arrCpu});
+
+			// console.log("11. Функция с продуктами");
+
+			// let products = [
+			// 	{title: 'prod1', price: 5.2}, {title: 'prod2', price: 0.18},
+			// 	{title: 'prod3', price: 15}, {title: 'prod4', price: 25},
+			// 	{title: 'prod5', price: 18.9}, {title: 'prod6', price: 8},
+			// 	{title: 'prod7', price: 19}, {title: 'prod8', price: 63}
+			// ];
+
+			// function filterCollection(arr, minPrice, maxPrice){
+			// 	var newArr = [];
+			// 	for(let i = 0, len = arr.length; i < len; i++){
+			// 		if (arr[i].price >= minPrice && arr[i].price <= maxPrice) {
+			// 			newArr.push(arr[i]);
+			// 		};
+			// 	};
+			// 	newArr.sort(function(prev, next) {
+			// 		return prev.price - next.price;
+					
+			// 	});
+			// 	return newArr;
+			// }
+						
+			// var sortProd = filterCollection(products, 15, 30);
+			// console.log(sortProd);
 </script>
 </body>
