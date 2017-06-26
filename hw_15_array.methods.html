@@ -78,5 +78,37 @@
 			console.log(res);
 
 			
+
+			console.log("5.Написать ф-цию, которая соберет");
+
+			var arr = [
+				{char:"a",index:12}, 
+				{char:"w",index:8}, 
+				{char:"Y",index:10}, 
+				{char:"p",index:3}, 
+				{char:"p",index:2},
+				{char:"N",index:6}, 
+				{char:" ",index:5}, 
+				{char:"y",index:4}, 
+				{char:"r",index:13}, 
+				{char:"H",index:0},
+				{char:"e",index:11}, 
+				{char:"a",index:1}, 
+				{char:" ",index:9}, 
+				{char:"!",index:14}, 
+				{char:"e",index:7}
+			],
+				sortInd = [],
+				resultArr = [];
+
+			sortInd = arr.sort( (prev, next) => prev.index - next.index );
+			console.log(sortInd);
+
+			resultArr = sortInd.reduce(function (sumStr, curent) {
+				sumStr += curent.char;
+				return sumStr;
+			}, '');
+			console.log(resultArr);
+
 </script>
 </body>
